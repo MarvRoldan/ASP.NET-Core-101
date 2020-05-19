@@ -20,11 +20,12 @@ namespace Craft.Pages
             JsonFileProductService productService)
         {
             _logger = logger;
+            ProductService = productService;
         }
 
         public void OnGet()
         {
-
+            Products = ProductService.GetProducts();
         }
     }
 }
