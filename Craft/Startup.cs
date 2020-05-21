@@ -52,6 +52,10 @@ namespace Craft
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapGet("/products", (context) =>
+                {
+                    var products = app.ApplicationServices.GetService<JsonFileProductService>().GetProducts();
+                });
             });
         }
     }
