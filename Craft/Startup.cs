@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Craft.Controllers;
 
 namespace Craft
 {
@@ -28,6 +29,7 @@ namespace Craft
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddControllers();
             services.AddTransient<JsonFileProductService>();
         }
 
@@ -55,6 +57,7 @@ namespace Craft
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllers();
                 //endpoints.MapGet("/products", (context) =>
                 //{
                 //    var products = app.ApplicationServices.GetService<JsonFileProductService>().GetProducts();
